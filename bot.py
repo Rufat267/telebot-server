@@ -1,9 +1,14 @@
 from aiogram import types,Bot,Dispatcher,executor
-
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import qrcode
 
-Bot = Bot("7970851723:AAFMOLB1smzWNR75MJYXCAjbVo9U7ZGYGaY")
-dp = Dispatcher(Bot)
+
+api = "7970851723:AAFMOLB1smzWNR75MJYXCAjbVo9U7ZGYGaY"
+
+proxy_url = 'http://proxy.server:3128'
+bot = Bot(api,proxy=proxy_url)
+storage = MemoryStorage()
+dp = Dispatcher(bot=bot,storage=storage)
 
 @dp.message_handler()
 async def send_qrcode(sms:types.Message):
