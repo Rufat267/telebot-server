@@ -15,7 +15,7 @@ async def send_qrcode(sms:types.Message):
     img = qrcode.make(sms.text)
     img.save('some_file.png')
     with open('some_file.png','rb') as image:
-        await sms.answer_photo(caption='qr code',photo=types.InputFile(image))
+        await sms.answer_photo(caption='Bul siz jaratkan qrcode ',photo=types.InputFile(image))
 # @dp.callback_query_handler()
 # async def send_whatever(call:types.CallbackQuery):
 #     user_id = call.from_user.id
